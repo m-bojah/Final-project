@@ -1,63 +1,58 @@
-# 🗂️ Java Task Manager Application
+# Task Manager Desktop App
 
-A desktop-based **Task Manager App** built with **Java Swing** and **MySQL** that allows users to register, log in, and manage tasks efficiently using a professional interface with calendar-based deadlines and smart status control.
+This is a simple desktop application for managing tasks, built using Java Swing and MySQL. It allows users to register, log in, and manage tasks with features like setting deadlines using a calendar, changing task statuses, and deleting tasks.
 
----
+## Features
 
-## 📌 Features
+- User registration and login with email validation
+- Add tasks with a title, description, deadline, and status
+- Choose deadline using a calendar (past dates are disabled)
+- Change task status (Pending, In Progress, Completed)
+- Delete any task
+- Visual indicators for overdue and completed tasks
+- Professional-looking GUI
+- Secure database integration using JDBC
 
-- 🔐 **User Registration & Login** with email validation  
-- 📅 **Task Creation** with a calendar-based deadline picker  
-- ✅ **Status Management** (Pending, In Progress, Completed)  
-- 🚫 **Status Rules Enforcement**  
-  - Can't move from In Progress → Pending  
-  - Only Completed tasks can be deleted  
-- 🔄 **Change Status** via dropdown  
-- 🟥 **Highlight Overdue Tasks**  
-- 🔒 **Non-editable Task Table** (read-only display)  
-- 🔘 **Logout Functionality**  
-- 🖼️ **Modern GUI Design** inspired by JeruHub  
-- ❌ **No past dates allowed** when setting task deadlines  
+## How It Works
 
----
+1. User starts the app and logs in or registers
+2. After login, the task manager panel opens
+3. User can add a new task using the form and calendar
+4. Status of each task can be changed using a button
+5. Completed tasks can be deleted
+6. User can log out any time
 
-## 🚀 How It Works
+## Technologies Used
 
-1. **User opens the application**  
-2. **Registers** (with name, email, and password – email must be valid)  
-3. **Logs in**  
-4. **Adds a task** using title, description, status, and calendar deadline  
-5. Task is always added as **Pending**  
-6. Can change task status to **In Progress** or **Completed**  
-7. Can **delete tasks** only if they are **Completed**
+- Java (Swing for GUI)
+- MySQL (Database)
+- JDBC (Database connection)
+- JCalendar (Date picker component)
 
----
+## How to Run
 
-## 🧰 Tech Stack
+1. Clone the repository
+2. Create a MySQL database named `task_manager`
+3. Run the `schema.sql` to create the required tables
+4. Update `DBConnection.java` with your MySQL username and password
+5. Compile and run `TaskManagerGUI.java`
 
-- **Language:** Java  
-- **Database:** MySQL  
-- **GUI:** Java Swing  
-- **Calendar:** JDateChooser (Toedter Library)  
-- **Tools:** IntelliJ IDEA / VS Code  
+## File Structure
 
----
+- `DBConnection.java` – Handles database connection
+- `User.java` – Represents a user
+- `UserDAO.java` – User-related DB operations
+- `Task.java` – Represents a task
+- `TaskDAO.java` – Task-related DB operations
+- `TaskManagerGUI.java` – The main GUI and logic
 
-## 🖼️ UI Overview
+## Notes
 
-- **Login Page**: Email & password fields with validation  
-- **Registration Page**: Full form with name, email, and password  
-- **Task Manager Panel**:  
-  - Input fields for task  
-  - JDateChooser for deadlines  
-  - JTable displaying tasks (read-only)  
-  - Buttons: `Add Task`, `Change Status`, `Delete`, `Logout`
+- Email validation is included during registration
+- Users can only see and manage their own tasks
+- Deadline picker disables past dates
+- The task table is view-only for safety
 
----
+## Author
 
-## ⚙️ Installation
-
-### 1. Clone the Repo
-
-```bash
-git clone https://github.com/your-username/task-manager-java.git
+Created as a Java final project for university. Aimed to apply object-oriented design and real database integration in a simple but functional desktop application.
